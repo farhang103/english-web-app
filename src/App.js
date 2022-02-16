@@ -2,7 +2,7 @@ import Router from "./routes/router";
 
 function App() {
   return (
-    <div className="grid grid-cols-3 w-screen h-screen">
+    <div className="bg-main grid h-screen w-screen grid-cols-3 grid-rows-1 content-center">
       <Router />
     </div>
   );
