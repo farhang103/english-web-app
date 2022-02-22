@@ -1,17 +1,18 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "../components/Header.js";
-import Home from "../components/Home.js";
-import About from "../components/About.js";
-import Contact from "../components/Contact.js";
+import Home from "../pages/Home.js";
+import About from "../pages/About.js";
+import Contact from "../pages/Contact.js";
 import SideBar from "../components/SideBar.js";
-import Grammer from "../components/Grammer.js";
-import Story from "../components/Story.js";
-import Idioms from "../components/Idioms.js";
-import Vocabulary from "../components/Vocabulary.js";
-import GamesTests from "../components/GamesTests.js";
-import GeneralKnowledge from "../components/GeneralKnowledge.js";
-import MusicVideo from "../components/MusicVideo.js";
+import Grammer from "../pages/Grammer.js";
+import Story from "../pages/Story.js";
+import Idioms from "../pages/Idioms.js";
+import Vocabulary from "../pages/Vocabulary.js";
+import GamesTests from "../pages/GamesTests.js";
+import GeneralKnowledge from "../pages/GeneralKnowledge.js";
+import MusicVideo from "../pages/MusicVideo.js";
+import Write from "../pages/Write.js";
 
 const Router = () => {
   return (
@@ -21,6 +22,7 @@ const Router = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
+        <Route path="/write" element={<Write />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/grammer" element={<Grammer />} />
         <Route path="/vocabulary" element={<Vocabulary />} />

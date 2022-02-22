@@ -3,11 +3,11 @@ import { NavLink } from "react-router-dom";
 
 const SideBar = () => {
   const deactive =
-    "flex w-full content-center justify-center border-b-2 border-b-black p-5 hover:text-white hover:bg-gray-700";
+    "flex w-full content-center justify-center border-b-black p-5 hover:text-white hover:bg-gray-700";
   const active =
     "flex w-full content-center justify-center p-5 text-white bg-gray-800";
   return (
-    <div className="fixed top-36 left-4 row-span-2 flex w-72 flex-col items-center overflow-hidden rounded-3xl border-2 border-black text-xl text-black">
+    <div className="fixed top-28 row-span-4 row-start-2 mt-2 ml-10 flex w-72 flex-col items-center overflow-hidden rounded-3xl border-2 border-black text-2xl text-black">
       <NavLink
         to="/grammer"
         className={({ isActive }) => (isActive ? active : deactive)}
