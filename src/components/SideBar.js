@@ -7,7 +7,7 @@ const SideBar = () => {
   const active =
     "flex w-full content-center justify-center p-5 text-white bg-gray-800";
   return (
-    <div className="fixed top-28 row-span-4 row-start-2 mt-2 ml-10 flex w-72 flex-col items-center overflow-hidden rounded-3xl border-2 border-black text-2xl text-black">
+    <div className="fixed top-28 mt-2 ml-10 flex w-72 flex-col items-center overflow-hidden rounded-3xl border-2 border-black text-2xl text-black">
       <NavLink
         to="/grammer"
         className={({ isActive }) => (isActive ? active : deactive)}

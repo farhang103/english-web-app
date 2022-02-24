@@ -12,17 +12,19 @@ import Vocabulary from "../pages/Vocabulary.js";
 import GamesTests from "../pages/GamesTests.js";
 import GeneralKnowledge from "../pages/GeneralKnowledge.js";
 import MusicVideo from "../pages/MusicVideo.js";
-import Write from "../pages/Write.js";
+import Post from "../pages/Post.js";
+// import Footer from "../components/Footer.js";
 
 const Router = () => {
   return (
     <BrowserRouter>
       <Header />
       <SideBar />
+      {/* <Footer /> */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
-        <Route path="/write" element={<Write />} />
+        <Route path="/post" element={<Post />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/grammer" element={<Grammer />} />
         <Route path="/vocabulary" element={<Vocabulary />} />
