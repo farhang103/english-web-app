@@ -12,7 +12,9 @@ import Vocabulary from "../pages/Vocabulary.js";
 import GamesTests from "../pages/GamesTests.js";
 import GeneralKnowledge from "../pages/GeneralKnowledge.js";
 import MusicVideo from "../pages/MusicVideo.js";
-import Post from "../pages/Post.js";
+import Post from "../components/Post.js";
+import Write from "../pages/Write.js";
+import Blog from "../pages/Blog.js";
 // import Footer from "../components/Footer.js";
 
 const Router = () => {
@@ -23,6 +25,8 @@ const Router = () => {
       {/* <Footer /> */}
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/write" element={<Write />} />
         <Route path="/about" element={<About />} />
         <Route path="/post" element={<Post />} />
         <Route path="/contact" element={<Contact />} />

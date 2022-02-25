@@ -5,7 +5,7 @@ import image from "../blog-image.jpg";
 
 const Post = () => {
   return (
-    <div className="absolute top-24 right-20 col-start-2 row-start-2 flex w-full flex-col items-center justify-center rounded-2xl border-2 border-black bg-slate-50 p-10 text-4xl">
+    <div className="blankPage">
       <div className="flex justify-center overflow-hidden rounded-md">
         <img className="object-fill" src={image} alt="img" />
       </div>
