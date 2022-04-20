@@ -1,6 +1,5 @@
 import React from "react";
 import Posts from "../components/Posts";
-import { Link } from "react-router-dom";
 
 const Blog = () => {
   return (
