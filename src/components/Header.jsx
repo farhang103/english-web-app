@@ -5,18 +5,28 @@ const Header = () => {
   const navBarList = ["Home", "Blog", "Write", "About", "Contact"];
 
   return (
-    <div className="fixed z-50 flex w-full items-start justify-end bg-main p-4 text-lg text-black">
-      <Link to="/">
-        <div className="absolute left-10 top-2 text-3xl">Logo</div>
-      </Link>
-      {navBarList.map((array) => {
-        return (
-          <Link to={`${array.toLowerCase()}`} className="mr-16">
-            {array}
+    <>
+      <div className="z-50 col-start-1 col-end-13 row-start-1 row-end-1 flex h-12 w-full items-center justify-end bg-main object-fill pt-2 text-lg text-black">
+        <div className="flex w-1/2 items-center justify-start">
+          <Link to="/">
+            <div className="text-3xl">Logo</div>
           </Link>
-        );
-      })}
-    </div>
+        </div>
+        {console.log(navBarList[navBarList.length - 1])}
+        <div className="flex w-1/2 items-center justify-end">
+          {navBarList.map((array) => {
+            const space =
+              navBarList[navBarList.length - 1] === array ? " " : "mr-16";
+            console.log(space);
+            return (
+              <Link key={array} to={`${array.toLowerCase()}`} className={space}>
+                {array}
+              </Link>
+            );
+          })}
+        </div>
+      </div>
+    </>
   );
 };
 

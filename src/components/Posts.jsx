@@ -8,11 +8,11 @@ const Posts = () => {
   return (
     <div>
       <Link to="/post">
-        <div className="h-96 w-72 cursor-pointer overflow-hidden rounded-lg border-2 border-black">
+        <div className="h-full w-full cursor-pointer overflow-hidden rounded-lg border-[1px] border-black bg-main bg-opacity-20">
           <div>
             <img src={image} alt="" />
           </div>
-          <p className="p-4 text-base tracking-wide">
+          <p className="p-4 pb-2 text-base tracking-wide">
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laborum
             itaque molestiae blanditiis vel Lorem ipsum, dolor sit amet
             consectetur adipisicing elit. Laborum itaque molestiae

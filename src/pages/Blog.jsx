@@ -4,7 +4,7 @@ import Posts from "../components/Posts";
 const Blog = () => {
   return (
     <div className="blankPage">
-      <div className="grid w-full grid-cols-4 grid-rows-2 gap-10">
+      <div className="grid w-full grid-cols-4 grid-rows-2 gap-5">
         <Posts />
         <Posts />
         <Posts />

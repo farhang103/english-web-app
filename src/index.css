@@ -4,6 +4,6 @@
 
 @layer components {
   .blankPage {
-    @apply absolute top-24 right-10 z-10 col-start-2 row-start-2 flex w-full flex-col justify-center rounded-2xl border-2 border-black bg-slate-50 px-8 py-4 text-xl;
+    @apply right-10 col-start-4 col-end-13 row-start-1 mt-[105px] flex w-full flex-col justify-center rounded-2xl border-2 border-black bg-slate-50 px-8 py-4 text-xl;
   }
 }

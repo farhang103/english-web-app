@@ -13,9 +13,7 @@ const SideBar = () => {
 
   const spaceChecker = (array) => {
     const space = hasWhiteSpace(array);
-
     if (!space) return array;
-
     array = array.replace(/\s/g, "");
     return array;
   };
@@ -31,10 +29,11 @@ const SideBar = () => {
   ];
 
   return (
-    <div className="fixed top-28 mt-2 ml-10 flex w-64 flex-col items-center overflow-hidden rounded-3xl border-2 border-black text-xl text-black">
+    <div className="fixed top-28 mt-2 flex w-64 flex-col items-center overflow-hidden rounded-3xl border-2 border-black text-xl text-black">
       {sideBarList.map((array) => {
         return (
           <NavLink
+            key={array}
             to={`/${spaceChecker(array.toLowerCase())}`}
             className={({ isActive }) => (isActive ? active : deactive)}
           >

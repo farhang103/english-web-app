@@ -1,9 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import PageEdit from "../components/PageEdit";
 
 const Idioms = () => {
   return (
     <div className="blankPage">
+      <PageEdit />
       <div>
         <Link to="/idioms/body">Body Idioms</Link>
       </div>
