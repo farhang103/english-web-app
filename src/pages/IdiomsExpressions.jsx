@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import PageEdit from "../components/PageEdit";
 
-const Idioms = () => {
+const IdiomsExpressions = () => {
   return (
     <div className="blankPage">
       <PageEdit />
@@ -22,4 +22,4 @@ const Idioms = () => {
   );
 };
 
-export default Idioms;
+export default IdiomsExpressions;

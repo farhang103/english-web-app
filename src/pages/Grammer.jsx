@@ -1,25 +1,34 @@
-import React from "react";
+import React, { useContext } from "react";
 import PageEdit from "../components/PageEdit";
 import { Link } from "react-router-dom";
+import { GrammerContext } from "../context/GrammerContext";
 
 const Grammer = () => {
-  const list = [
+  const { grammer, setGrammer } = useContext(GrammerContext);
+
+  let list = [
     "Beginner",
     "Pre-Intermidiate",
     "Intermediate",
     "Upper-Intermediate",
     "Advanced",
+    ...grammer,
   ];
+
   return (
     <div className="blankPage">
-      <PageEdit />
-      <div>
-        <Link to="/grammer/beginner">Beginner</Link>
-      </div>
-      <div>Pre-Intermidiate</div>
-      <div>Intermediate</div>
-      <div>Upper-Intermediate</div>
-      <div>Advanced</div>
+      <PageEdit
+        onSubmit={(text) => {
+          setGrammer([...grammer, text]);
+        }}
+      />
+      {list.map((array) => {
+        return (
+          <div key={array}>
+            <Link to={`/grammer/${array.toLowerCase()}`}>{array}</Link>
+          </div>
+        );
+      })}
     </div>
   );
 };

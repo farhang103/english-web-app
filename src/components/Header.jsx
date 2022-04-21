@@ -12,12 +12,10 @@ const Header = () => {
             <div className="text-3xl">Logo</div>
           </Link>
         </div>
-        {console.log(navBarList[navBarList.length - 1])}
         <div className="flex w-1/2 items-center justify-end">
           {navBarList.map((array) => {
             const space =
               navBarList[navBarList.length - 1] === array ? " " : "mr-16";
-            console.log(space);
             return (
               <Link key={array} to={`${array.toLowerCase()}`} className={space}>
                 {array}
