@@ -26,12 +26,21 @@ import Beginner from "../pages/Beginner.jsx";
 import { GrammerContext } from "../context/GrammerContext.jsx";
 import { VocabularyContext } from "../context/VocabularyContext.jsx";
 import { StoryContext } from "../context/StoryContext.jsx";
+import { IdiomsContext } from "../context/IdiomsContext.jsx";
+import { GamesTestsContext } from "../context/GamesTestsContext.jsx";
+import { GeneralKnowContext } from "../context/GeneralKnowContext.jsx";
+import { MusicVideoContext } from "../context/MusicVideoContext.jsx";
 // import Footer from "../components/Footer.jsx";
 
 const Router = () => {
   const [grammer, setGrammer] = useState([]);
   const [vocab, setVocab] = useState([]);
   const [story, setStory] = useState([]);
+  const [idioms, setIdioms] = useState([]);
+  const [games, setGames] = useState([]);
+  const [general, setGeneral] = useState([]);
+  const [music, setMusic] = useState([]);
+
   return (
     <BrowserRouter>
       <Header />
@@ -67,13 +76,38 @@ const Router = () => {
           <Route path="/story" element={<Story />} />
         </Routes>
       </StoryContext.Provider>
-      <Routes>
-        <Route path="/idioms&expressions" element={<IdiomsExpressions />} />
-        <Route path="/idioms/body" element={<BodyIdioms />} />
-        <Route path="/games&tests" element={<GamesTests />} />
-        <Route path="/generalknowledge" element={<GeneralKnowledge />} />
-        <Route path="/music&video" element={<MusicVideo />} />
-      </Routes>
+
+      {/* Idioms & Expressions */}
+      <IdiomsContext.Provider value={{ idioms, setIdioms }}>
+        <Routes>
+          <Route path="/idioms&expressions" element={<IdiomsExpressions />} />
+          <Route
+            path="/idioms&expressions/body-idioms"
+            element={<BodyIdioms />}
+          />
+        </Routes>
+      </IdiomsContext.Provider>
+
+      {/* Games & Tests */}
+      <GamesTestsContext.Provider value={{ games, setGames }}>
+        <Routes>
+          <Route path="/games&tests" element={<GamesTests />} />
+        </Routes>
+      </GamesTestsContext.Provider>
+
+      {/* General Knowledge */}
+      <GeneralKnowContext.Provider value={{ general, setGeneral }}>
+        <Routes>
+          <Route path="/generalknowledge" element={<GeneralKnowledge />} />
+        </Routes>
+      </GeneralKnowContext.Provider>
+
+      {/* Music & Video */}
+      <MusicVideoContext.Provider value={{ music, setMusic }}>
+        <Routes>
+          <Route path="/music&video" element={<MusicVideo />} />
+        </Routes>
+      </MusicVideoContext.Provider>
     </BrowserRouter>
   );
 };

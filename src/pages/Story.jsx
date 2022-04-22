@@ -7,6 +7,18 @@ const Story = () => {
   const { story, setStory } = useContext(StoryContext);
 
   let list = [...story];
+
+  function hasWhiteSpace(s) {
+    return s.indexOf(" ") >= 0;
+  }
+
+  const spaceChecker = (array) => {
+    const space = hasWhiteSpace(array);
+    if (!space) return array;
+    array = array.replace(/\s/g, "-");
+    return array;
+  };
+
   return (
     <div className="blankPage">
       <PageEdit
@@ -17,7 +29,9 @@ const Story = () => {
       {list.map((array) => {
         return (
           <div key={array}>
-            <Link to={`/story/${array.toLowerCase()}`}>{array}</Link>
+            <Link to={`/story/${spaceChecker(array.toLowerCase())}`}>
+              {array}
+            </Link>
           </div>
         );
       })}

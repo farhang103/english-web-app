@@ -15,6 +15,17 @@ const Grammer = () => {
     ...grammer,
   ];
 
+  function hasWhiteSpace(s) {
+    return s.indexOf(" ") >= 0;
+  }
+
+  const spaceChecker = (array) => {
+    const space = hasWhiteSpace(array);
+    if (!space) return array;
+    array = array.replace(/\s/g, "-");
+    return array;
+  };
+
   return (
     <div className="blankPage">
       <PageEdit
@@ -25,7 +36,9 @@ const Grammer = () => {
       {list.map((array) => {
         return (
           <div key={array}>
-            <Link to={`/grammer/${array.toLowerCase()}`}>{array}</Link>
+            <Link to={`/grammer/${spaceChecker(array.toLowerCase())}`}>
+              {array}
+            </Link>
           </div>
         );
       })}
