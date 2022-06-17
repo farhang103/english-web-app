@@ -3,9 +3,9 @@ import { NavLink } from "react-router-dom";
 
 const SideBar = () => {
   const deactive =
-    "flex w-full content-center justify-center border-b-black p-5 hover:text-white hover:bg-gray-700";
+    "flex w-full items-center justify-center p-5 hover:text-white hover:bg-gray-700";
   const active =
-    "flex w-full content-center justify-center p-5 text-white bg-gray-800";
+    "flex w-full items-center justify-center p-5 text-white bg-gray-800";
 
   function hasWhiteSpace(s) {
     return s.indexOf(" ") >= 0;

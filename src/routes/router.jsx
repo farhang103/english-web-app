@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "../components/Header.jsx";
+import { getContextProvider } from "react-dynamic-context-provider";
 
 // NavBar
 import Home from "../pages/Home.jsx";
@@ -30,6 +31,7 @@ import { IdiomsContext } from "../context/IdiomsContext.jsx";
 import { GamesTestsContext } from "../context/GamesTestsContext.jsx";
 import { GeneralKnowContext } from "../context/GeneralKnowContext.jsx";
 import { MusicVideoContext } from "../context/MusicVideoContext.jsx";
+import BlankPage from "../components/BlankPage.jsx";
 // import Footer from "../components/Footer.jsx";
 
 const Router = () => {
@@ -41,11 +43,13 @@ const Router = () => {
   const [general, setGeneral] = useState([]);
   const [music, setMusic] = useState([]);
 
+  const contexts = [{ name: "Blank", value: [] }];
+  const ContextProvider = getContextProvider(contexts);
+
   return (
     <BrowserRouter>
       <Header />
       <SideBar />
-      {/* <Footer /> */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/blog" element={<Blog />} />
@@ -57,10 +61,12 @@ const Router = () => {
 
       {/* Grammer */}
       <GrammerContext.Provider value={{ grammer, setGrammer }}>
-        <Routes>
-          <Route path="/grammer" element={<Grammer />} />
-          <Route path="/grammer/beginner" element={<Beginner />} />
-        </Routes>
+        <ContextProvider>
+          <Routes>
+            <Route path="/grammer" element={<Grammer />} />
+            <Route path="/grammer/:id" element={<BlankPage />} />
+          </Routes>
+        </ContextProvider>
       </GrammerContext.Provider>
 
       {/* Vocabulary */}
@@ -84,6 +90,10 @@ const Router = () => {
           <Route
             path="/idioms&expressions/body-idioms"
             element={<BodyIdioms />}
+          />
+          <Route
+            path="/idioms&expressions/body-idioms/:id"
+            element={<BlankPage />}
           />
         </Routes>
       </IdiomsContext.Provider>
