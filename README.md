@@ -1,2 +1,2 @@
-# BoilerPlate-Vite-React-TailwindCSS
-## My custom BoilerPlate for Vite + Reactjs + TailwindCSS
+# English Web app 
+## with Nextjs, TailwindCSS and Firebase
