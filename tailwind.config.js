@@ -1,14 +1,21 @@
 module.exports = {
-  content: ["./src/**/*.{js,jsx,ts,tsx}"],
+  content: [
+    "./pages/**/*.{js,ts,jsx,tsx}",
+    "./components/**/*.{js,ts,jsx,tsx}",
+  ],
   theme: {
     extend: {
       spacing: {
         97: "38.3125rem",
       },
-      colors: {
-        main: "#E7F2B1",
+      screens: {
+        sm: "0px",
+        md: "768px",
+        lg: "1024px",
+        xlg: "1440px",
       },
     },
   },
+
   plugins: [],
 };
