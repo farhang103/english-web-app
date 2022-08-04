@@ -110,12 +110,16 @@ const EditorPage = ({ edit, setEdit, id, content }: Props) => {
         >
           Save
         </button>
-        <button
-          className="ml-2 mt-6 rounded-lg border-2 border-black bg-red-600 px-4 py-2 text-white hover:bg-red-700 hover:text-white"
-          onClick={handleDelete}
-        >
-          Delete
-        </button>
+        {content ? (
+          <button
+            className="ml-2 mt-6 rounded-lg border-2 border-black bg-red-600 px-4 py-2 text-white hover:bg-red-700 hover:text-white"
+            onClick={handleDelete}
+          >
+            Delete
+          </button>
+        ) : (
+          ""
+        )}
       </div>
     </>
   );

@@ -1,0 +1,55 @@
+@tailwind base;
+
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-size: revert;
+    font-weight: revert;
+  }
+
+  ol,
+  ul {
+    list-style: revert;
+    margin: revert;
+    padding: revert;
+  }
+
+  a {
+    text-decoration: revert;
+    color: revert;
+  }
+}
+
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .blankPage {
+    @apply absolute left-0 mt-20 flex w-full flex-col justify-center rounded-2xl border-2 border-black bg-slate-50 px-8 py-4 text-xl sm:col-start-2 sm:col-end-12 lg:col-start-4 lg:col-end-13 lg:row-start-1 lg:mt-[120px] lg:w-full xlg:col-start-3;
+  }
+  .textEditor {
+    @apply absolute left-0 mt-20 flex w-full flex-col justify-center rounded-2xl border-2 border-black bg-slate-50 px-8 py-4 sm:col-start-2 sm:col-end-12 lg:col-start-4 lg:col-end-13 lg:row-start-1 lg:mt-[120px] lg:w-full xlg:col-start-3;
+  }
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  background-color: #e7f2b1;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
