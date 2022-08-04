@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import React from "react";
 import BlankPage from "../../components/BlankPage";
 
-const index = () => {
+const Grammer = () => {
   let list = [
     "Beginner",
     "Pre-Intermidiate",
@@ -15,4 +15,4 @@ const index = () => {
   return <BlankPage route={list}></BlankPage>;
 };
 
-export default index;
+export default Grammer;
