@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { faPenToSquare } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSquareXmark } from "@fortawesome/free-solid-svg-icons";
 import EditorPage from "./EditorPage";
+import ShowContent from "./context/ShowContent";
 
 interface Props {
   id?: any;
@@ -11,10 +12,12 @@ interface Props {
 
 const PageEdit = ({ id, content }: Props) => {
   const [edit, setEdit] = useState<boolean>(false);
+  const showContent = useContext(ShowContent);
 
   const handleEditor = (e: any) => {
     e.preventDefault();
     setEdit(!edit);
+    showContent?.setIsOpen(!showContent?.isOpen);
   };
 
   const editView = edit ? "hidden" : "";

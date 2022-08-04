@@ -1,6 +1,6 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
-import type { ReactElement, ReactNode } from "react";
+import { ReactElement, ReactNode, useState } from "react";
 import type { NextPage } from "next";
 import RootLayout from "../components/Layout";
 
@@ -14,6 +14,8 @@ type AppPropsWithLayout = AppProps & {
 
 export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   const getLayout = Component.getLayout ?? ((page) => page);
+
+  const [isOpen, setIsOpen] = useState<boolean>(false);
 
   return getLayout(
     <RootLayout>

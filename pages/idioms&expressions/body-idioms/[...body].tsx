@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import PageEdit from "../../../components/PageEdit";
 import parse from "html-react-parser";
 import { PrismaClient } from "@prisma/client";
+import ShowContent from "../../../components/context/ShowContent";
 
 const prisma = new PrismaClient();
 
@@ -24,14 +25,13 @@ export async function getServerSideProps({ params }: any) {
 }
 
 const Body = ({ editor }: any) => {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const showContent = useContext(ShowContent);
+
   return (
     <>
       <div className="textEditor">
-        <div onClick={() => setIsOpen(!isOpen)}>
-          <PageEdit id={editor?.id} content={editor?.content} />
-        </div>
-        {isOpen ? "" : editor ? parse(editor.content) : ""}
+        <PageEdit id={editor?.id} content={editor?.content} />
+        {showContent?.isOpen ? "" : editor ? parse(editor.content) : ""}
       </div>
     </>
   );

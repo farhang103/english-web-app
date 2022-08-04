@@ -1,10 +1,11 @@
 /* eslint-disable @next/next/no-script-component-in-head */
 import Head from "next/head";
 import Script from "next/script";
+import BlankPage from "../components/BlankPage";
 
 const Page = () => {
   return (
-    <div>
+    <BlankPage>
       <Head>
         <title>Pardis Inc</title>
         <meta name="Pardis Ins" content="English Web App" />
@@ -14,7 +15,7 @@ const Page = () => {
           referrerPolicy="origin"
         ></Script>
       </Head>
-    </div>
+    </BlankPage>
   );
 };
 

@@ -1,7 +1,10 @@
-import React, { useRef } from "react";
+import React, { useContext, useRef } from "react";
 import { Editor } from "@tinymce/tinymce-react";
 import initValue from "./tinyMCE/intial";
 import { useRouter } from "next/router";
+import { confirmAlert } from "react-confirm-alert";
+import "react-confirm-alert/src/react-confirm-alert.css";
+import ShowContent from "./context/ShowContent";
 
 interface Props {
   edit: boolean;
@@ -13,6 +16,7 @@ interface Props {
 const EditorPage = ({ edit, setEdit, id, content }: Props) => {
   const router = useRouter();
   const editorRef = useRef<any>(null);
+  const showContent = useContext(ShowContent);
 
   const refreshData = () => {
     router.replace(router.asPath);
@@ -41,10 +45,12 @@ const EditorPage = ({ edit, setEdit, id, content }: Props) => {
     }
     return await response.json();
   };
-  const log = async () => {
+
+  const handleCreate = async () => {
     await addContent(editorRef?.current?.getContent());
-    setEdit(!edit);
     refreshData();
+    setEdit(!edit);
+    showContent?.setIsOpen(!showContent?.isOpen);
   };
 
   // Deleting
@@ -54,6 +60,36 @@ const EditorPage = ({ edit, setEdit, id, content }: Props) => {
     }).then(() => {
       refreshData();
       setEdit(!edit);
+      showContent?.setIsOpen(!showContent?.isOpen);
+    });
+  };
+
+  const handleDelete = () => {
+    confirmAlert({
+      customUI: ({ onClose }) => {
+        return (
+          <div className="custom-ui">
+            <div className="rounded-lg border-2 border-black bg-slate-50 p-6 shadow-xl">
+              <h1>Are you sure?</h1>
+              <button
+                className="mr-2 mt-6 rounded-lg border-2 border-black bg-red-600 px-4 py-2 text-white hover:bg-red-700 hover:text-white"
+                onClick={() => {
+                  deleteContent(id);
+                  onClose();
+                }}
+              >
+                Yes, Delete it!
+              </button>
+              <button
+                className="mt-6 rounded-lg border-2 border-black px-4 py-2 hover:bg-gray-700 hover:text-white"
+                onClick={onClose}
+              >
+                No
+              </button>
+            </div>
+          </div>
+        );
+      },
     });
   };
 
@@ -70,13 +106,13 @@ const EditorPage = ({ edit, setEdit, id, content }: Props) => {
       <div className="flex justify-end">
         <button
           className="mt-6 rounded-lg border-2 border-black px-4 py-2 hover:bg-gray-700 hover:text-white"
-          onClick={log}
+          onClick={handleCreate}
         >
           Save
         </button>
         <button
           className="ml-2 mt-6 rounded-lg border-2 border-black bg-red-600 px-4 py-2 text-white hover:bg-red-700 hover:text-white"
-          onClick={() => deleteContent(id)}
+          onClick={handleDelete}
         >
           Delete
         </button>

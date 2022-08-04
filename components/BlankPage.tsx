@@ -1,10 +1,7 @@
-import React, { Children, ReactNode, useContext, useEffect } from "react";
+import React, { ReactNode, useContext } from "react";
 import Link from "next/link";
 import { MenuContext } from "./context/MenuBar";
 import { useRouter } from "next/router";
-// import { GrammerContext } from "../context/GrammerContext";
-// import { getContexts } from "react-dynamic-context-provider";
-// import PageEdit from "./PageEdit";
 
 interface propArray {
   route?: string[];
@@ -33,12 +30,6 @@ const BlankPage = ({ route, children }: propArray) => {
         menuContext?.open ? "blankPage sm:hidden lg:block" : "blankPage"
       }
     >
-      {/* <PageEdit
-        onSubmit={(text) => {
-          setMyValue([...myValue, text]);
-          setName(text);
-        }}
-      /> */}
       {route?.map((array) => {
         return (
           <div key={array}>
